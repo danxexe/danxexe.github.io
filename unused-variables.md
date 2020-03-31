@@ -37,7 +37,9 @@ let a = "I'm no longer relevant :("; // Why this exists? Let's just remove it.
 If the variable is not used after initialization but it's initialized with the result of a function call, the solution might not be so obvious:
 
 ```javascript
-let a = someFunction(); // Who knows what this function does? We better not remove it unless we are really sure.
+// Who knows what this function does?
+// We better not remove it unless we are really sure.
+let a = someFunction();
 ```
 
 Of course we could keep the function call, but just not assign the result to a variable, right?
@@ -146,7 +148,8 @@ Some time later:
 ```php
 <?php
 
-// Turns out we don't really need `$reallyImportantExtraArgument`, let's just remove it.
+// Turns out we don't really need `$reallyImportantExtraArgument`,
+// let's just remove it.
 function myReallySpecialSum($a, $b) {
   return $a + $b;
 }
