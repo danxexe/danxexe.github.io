@@ -1,5 +1,6 @@
-# Dealing with unused variables
-
+---
+title: Dealing with unused variables
+---
 
 ## How hard can it be?
 
