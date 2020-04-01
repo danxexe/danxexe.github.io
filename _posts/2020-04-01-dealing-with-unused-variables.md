@@ -1,5 +1,7 @@
 ---
 title: Dealing with unused variables
+layout: post
+permalink: dealing-with-unused-variables
 ---
 
 ## How hard can it be?

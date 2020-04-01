@@ -1,3 +1,13 @@
-name: danxexe.github.io
-title: null
+title: danxexe's blog
+author: Danilo Gonçalves
+description: >
+  a collection of mad ramblings about software development
+show_excerpts: false
+header_pages:
+  - about.md
+
 theme: minima
+minima:
+  date_format: "%Y-%m-%d"
+  social_links:
+    github:  danxexe
