@@ -199,7 +199,7 @@ And now you have a huge mess. You have calls with just 2 arguments, calls with 3
 
 ### Interfaces and subclasses
 
-Having unused arguments in implementations of an interface can be evidence that the interface is just too broad, a [god interface](https://en.wikipedia.org/wiki/God_object) if you will. In that case you might want to refactor it into smaller interfaces. But it might also be that some implementations simply have no use for an argument. If the argument makes sense for most of the implementations but are not used by a few exceptions, it might not be worth it changing the whole codebase just to keep some exceptional implementation from having unused arguments. In that case, it's a good practice to make it explicit that this implementation is in some way exceptional. A good example of that is when implementing [test doubles](https://blog.pragmatists.com/test-doubles-fakes-mocks-and-stubs-1a7491dfa3da), specially stubs:
+Having unused arguments in implementations of an interface can be evidence that the interface is just too broad, a [god interface](https://en.wikipedia.org/wiki/God_object) if you will. [A lot could be said](https://en.wikipedia.org/wiki/SOLID) about designing good interfaces, so I won't try to go into it here. But it might also be that some implementations simply have no use for an argument. If the argument makes sense for most of the implementations but are not used by a few exceptions, it might not be worth it changing the whole codebase just to keep some exceptional implementation from having unused arguments. In that case, it's a good practice to make it explicit that this implementation is in some way exceptional. A common example of that is when implementing [test doubles](https://blog.pragmatists.com/test-doubles-fakes-mocks-and-stubs-1a7491dfa3da):
 
 ```php
 // Pardon the lack of type hints, it's not relevant for the example.
@@ -221,7 +221,9 @@ class HttpClientForTest implements HttpClient {
 - Having a variable there, even when not used, serves as documentation for future developers reading the code. The value is still being passed by the caller, we are just deciding not to use it.
 - There are [documented cases](https://github.com/microsoft/TypeScript/issues/32196) of the linter / IDE integration removing an argument from places where it will definitely cause bugs, like in the middle of a function declaration.
 
-It's hard to come up with real examples that don't involve tests because, as mentioned, we are dealing with exceptional cases. What can be considered either an acceptable exception or a case of bad design will depend greatly on specific details of your codebase. Still, making it explicit that we are ignoring an argument should make it clear for developers reading the code that it's intentional and not a mistake. They might still question if there's a better solution, but at least they know it's by design.
+Another example might be an [Adapter](https://refactoring.guru/design-patterns/adapter) between an old interface and a new one where some of the arguments of the old interface do not apply to the new one.
+
+What can be considered either an acceptable exception or a case of bad design will depend greatly on the context. Still, making it explicit that we are ignoring an argument should make it clear for developers reading the code that it's intentional and not a mistake. They might still question if there's a better solution, but at least they know it's by design.
 
 How do I suggest we make it explicit then? Well, let's look at one more case before that.
 
