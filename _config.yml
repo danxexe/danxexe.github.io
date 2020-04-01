@@ -11,3 +11,5 @@ minima:
   date_format: "%Y-%m-%d"
   social_links:
     github:  danxexe
+
+google_analytics: UA-38182637-2
